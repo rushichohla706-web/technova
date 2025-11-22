@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transport Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
+
+    
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 shadow-lg">
+        <div class="max-w-7xl mx-auto px-6 py-5">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="bg-white/20 backdrop-blur-sm p-3 rounded-xl shadow-lg">
+                        <svg class="text-white" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="18" height="12" rx="2"/><path d="M1 10h18M5 14h.01M9 14h.01M13 14h.01"/></svg>
+                    </div>
+                    <div>
+                        <h1 class="text-3xl font-bold text-white">Transport Admin</h1>
+                        <p class="text-indigo-100 text-sm">Route & Schedule Management System</p>
+                    </div>
+                </div>
+             
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-6 py-8">
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-all transform hover:-translate-y-1">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="bg-white/20 backdrop-blur-sm p-3 rounded-xl">
+                        <svg class="text-white" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <span class="text-white text-sm font-bold bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 7L13 16 7 10"/></svg>
+                        +2
+                    </span>
+                </div>
+                <h3 class="text-4xl font-bold text-white mb-2" id="totalRoutes">3</h3>
+                <p class="text-blue-100 text-sm font-medium">Total Routes</p>
+            </div>
+
+            <div class="bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-all transform hover:-translate-y-1">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="bg-white/20 backdrop-blur-sm p-3 rounded-xl">
+                        <svg class="text-white" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    </div>
+                    <span class="text-white text-sm font-bold bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full">
+                        Active
+                    </span>
+                </div>
+                <h3 class="text-4xl font-bold text-white mb-2" id="totalSchedules">10</h3>
+                <p class="text-emerald-100 text-sm font-medium">Total Schedules</p>
+            </div>
+
+            <div class="bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-all transform hover:-translate-y-1">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="bg-white/20 backdrop-blur-sm p-3 rounded-xl">
+                        <svg class="text-white" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="18" height="12" rx="2"/><path d="M1 10h18M5 14h.01M9 14h.01M13 14h.01"/></svg>
+                    </div>
+                    <span class="text-white text-sm font-bold bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full">
+                        5 free
+                    </span>
+                </div>
+                <h3 class="text-4xl font-bold text-white mb-2" id="totalVehicles">5</h3>
+                <p class="text-purple-100 text-sm font-medium">Active Vehicles</p>
+            </div>
+
+            <div class="bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-all transform hover:-translate-y-1">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="bg-white/20 backdrop-blur-sm p-3 rounded-xl">
+                        <svg class="text-white" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <span class="text-white text-sm font-bold bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full">
+                        All active
+                    </span>
+                </div>
+                <h3 class="text-4xl font-bold text-white mb-2">10</h3>
+                <p class="text-orange-100 text-sm font-medium">Assigned Drivers</p>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="bg-white rounded-2xl shadow-xl border-2 border-purple-200 overflow-hidden">
+            <div class="bg-gradient-to-r from-indigo-50 to-purple-50 border-b-2 border-purple-200">
+                <div class="flex">
+                    <button onclick="switchTab('routes')" id="routesTab" class="flex items-center gap-2 px-8 py-5 font-semibold transition-all text-indigo-700 border-b-4 border-indigo-600 bg-white shadow-sm">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Routes Management
+                    </button>
+                    <button onclick="switchTab('schedules')" id="schedulesTab" class="flex items-center gap-2 px-8 py-5 font-semibold transition-all text-slate-600 hover:text-indigo-600 hover:bg-white/50">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        Schedule Management
+                    </button>
+                </div>
+            </div>
+
+            <!-- Search and Actions Bar -->
+            <div class="p-6 border-b-2 border-purple-100 bg-gradient-to-r from-indigo-50 to-purple-50">
+                <div class="flex items-center justify-between gap-4">
+                    <div class="flex-1 relative">
+                        <svg class="absolute left-4 top-1/2 transform -translate-y-1/2 text-indigo-400" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                        <input type="text" id="searchInput" placeholder="Search..." oninput="handleSearch()" class="w-full pl-12 pr-4 py-3 border-2 border-indigo-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-indigo-200 focus:border-indigo-500 bg-white shadow-sm"/>
+                    </div>
+                    <button class="flex items-center gap-2 px-5 py-3 border-2 border-purple-300 rounded-xl hover:bg-purple-50 transition-all text-purple-700 font-medium shadow-sm hover:shadow-md">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+                        Filter
+                    </button>
+                    <button onclick="openModal()" class="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl hover:from-indigo-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl font-semibold transform hover:-translate-y-0.5">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        <span id="addButtonText">Add Route</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Routes Table -->
+            <div id="routesTable" class="overflow-x-auto">
+                <table class="w-full">
+                    <thead class="bg-gradient-to-r from-indigo-100 to-purple-100 border-b-2 border-purple-200">
+                        <tr>
+                            <th class="text-left px-6 py-4 text-sm font-bold text-indigo-900">Route Name</th>
+                            <th class="text-left px-6 py-4 text-sm font-bold text-indigo-900">Origin</th>
+                            <th class="text-left px-6 py-4 text-sm font-bold text-indigo-900">Destination</th>
+                            <th class="text-left px-6 py-4 text-sm font-bold text-indigo-900">Distance</th>
+                            <th class="text-left px-6 py-4 text-sm font-bold text-indigo-900">Vehicles</th>
+                            <th class="text-left px-6 py-4 text-sm font-bold text-indigo-900">Status</th>
+                            <th class="text-left px-6 py-4 text-sm font-bold text-indigo-900">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="routesTableBody" class="divide-y divide-purple-100"></tbody>
+                </table>
+            </div>
+
+            <!-- Schedules Table -->
+            <div id="schedulesTable" class="overflow-x-auto hidden">
+                <table class="w-full">
+                    <thead class="bg-gradient-to-r from-indigo-100 to-purple-100 border-b-2 border-purple-200">
+                        <tr>
+                            <th class="text-left px-6 py-4 text-sm font-bold text-indigo-900">Route</th>
+                            <th class="text-left px-6 py-4 text-sm font-bold text-indigo-900">Vehicle ID</th>
+                            <th class="text-left px-6 py-4 text-sm font-bold text-indigo-900">Departure</th>
+                            <th class="text-left px-6 py-4 text-sm font-bold text-indigo-900">Arrival</th>
+                            <th class="text-left px-6 py-4 text-sm font-bold text-indigo-900">Days</th>
+                            <th class="text-left px-6 py-4 text-sm font-bold text-indigo-900">Driver</th>
+                            <th class="text-left px-6 py-4 text-sm font-bold text-indigo-900">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="schedulesTableBody" class="divide-y divide-purple-100"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="fixed inset-0 bg-gradient-to-br from-indigo-900/50 via-purple-900/50 to-pink-900/50 backdrop-blur-sm flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 border-2 border-purple-200">
+            <h2 id="modalTitle" class="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-6">➕ Add New Route</h2>
+            <div id="modalForm" class="space-y-4"></div>
+            <div class="flex gap-3 mt-8">
+                <button onclick="closeModal()" class="flex-1 px-6 py-3 border-2 border-slate-300 rounded-xl hover:bg-slate-50 transition-all text-slate-700 font-semibold shadow-md hover:shadow-lg">
+                    Cancel
+                </button>
+                <button onclick="handleSave()" class="flex-1 px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl hover:from-indigo-700 hover:to-purple-700 transition-all font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    Save
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let isLoggedIn = false;
+
+        function handleLogin() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const loginError = document.getElementById('loginError');
+            
+            if (username.includes('@gmail.com') && password.length > 0) {
+                isLoggedIn = true;
+                document.getElementById('loginScreen').classList.add('hidden');
+                document.getElementById('dashboard').classList.remove('hidden');
+                loginError.classList.add('hidden');
+            } else {
+                loginError.classList.remove('hidden');
+            }
+        }
+
+        function handleLogout() {
+            if (confirm('Are you sure you want to logout?')) {
+                isLoggedIn = false;
+                document.getElementById('dashboard').classList.add('hidden');
+                document.getElementById('loginScreen').classList.remove('hidden');
+                document.getElementById('username').value = '';
+                document.getElementById('password').value = '';
+                document.getElementById('loginError').classList.add('hidden');
+            }
+        }
+
+        // Allow Enter key to submit login
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('username').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') handleLogin();
+            });
+            document.getElementById('password').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') handleLogin();
+            });
+        });
+
+        let activeTab = 'routes';
+        let routes = [
+            { id: 1, name: 'Route A', origin: 'Downtown', destination: 'Airport', distance: '25 km', status: 'active', vehicles: 3 },
+            { id: 2, name: 'Route B', origin: 'Central Station', destination: 'Beach', distance: '18 km', status: 'active', vehicles: 2 },
+            { id: 3, name: 'Route C', origin: 'North Terminal', destination: 'South Mall', distance: '32 km', status: 'inactive', vehicles: 0 }
+        ];
+
+        let schedules = [
+            { id: 1, route: 'Route A', vehicleId: 'V001', departure: '08:00', arrival: '09:15', days: 'Mon-Fri', driver: 'John Doe' },
+            { id: 2, route: 'Route A', vehicleId: 'V002', departure: '10:30', arrival: '11:45', days: 'Mon-Fri', driver: 'Jane Smith' },
+            { id: 3, route: 'Route B', vehicleId: 'V003', departure: '07:00', arrival: '08:00', days: 'Daily', driver: 'Mike Johnson' },
+            { id: 4, route: 'Route B', vehicleId: 'V004', departure: '14:00', arrival: '15:00', days: 'Sat-Sun', driver: 'Sarah Williams' },
+            { id: 5, route: 'Route A', vehicleId: 'V005', departure: '12:00', arrival: '13:15', days: 'Mon-Fri', driver: 'Robert Brown' },
+            { id: 6, route: 'Route C', vehicleId: 'V006', departure: '09:30', arrival: '10:45', days: 'Mon-Wed-Fri', driver: 'Emily Davis' },
+            { id: 7, route: 'Route A', vehicleId: 'V007', departure: '15:00', arrival: '16:15', days: 'Daily', driver: 'Michael Wilson' },
+            { id: 8, route: 'Route B', vehicleId: 'V008', departure: '16:30', arrival: '17:30', days: 'Mon-Fri', driver: 'Lisa Anderson' },
+            { id: 9, route: 'Route C', vehicleId: 'V009', departure: '11:00', arrival: '12:15', days: 'Tue-Thu', driver: 'David Martinez' },
+            { id: 10, route: 'Route A', vehicleId: 'V010', departure: '17:30', arrival: '18:45', days: 'Mon-Fri', driver: 'Jessica Taylor' }
+        ];
+
+        function switchTab(tab) {
+            activeTab = tab;
+            document.getElementById('routesTab').className = tab === 'routes' 
+                ? 'flex items-center gap-2 px-8 py-5 font-semibold transition-all text-indigo-700 border-b-4 border-indigo-600 bg-white shadow-sm'
+                : 'flex items-center gap-2 px-8 py-5 font-semibold transition-all text-slate-600 hover:text-indigo-600 hover:bg-white/50';
+            document.getElementById('schedulesTab').className = tab === 'schedules'
+                ? 'flex items-center gap-2 px-8 py-5 font-semibold transition-all text-indigo-700 border-b-4 border-indigo-600 bg-white shadow-sm'
+                : 'flex items-center gap-2 px-8 py-5 font-semibold transition-all text-slate-600 hover:text-indigo-600 hover:bg-white/50';
+            document.getElementById('routesTable').classList.toggle('hidden', tab !== 'routes');
+            document.getElementById('schedulesTable').classList.toggle('hidden', tab !== 'schedules');
+            document.getElementById('addButtonText').textContent = tab === 'routes' ? 'Add Route' : 'Add Schedule';
+            document.getElementById('searchInput').value = '';
+            renderData();
+        }
+
+        function renderRoutes(filterText = '') {
+            const tbody = document.getElementById('routesTableBody');
+            const filtered = routes.filter(r => 
+                r.name.toLowerCase().includes(filterText.toLowerCase()) ||
+                r.origin.toLowerCase().includes(filterText.toLowerCase()) ||
+                r.destination.toLowerCase().includes(filterText.toLowerCase())
+            );
+            
+            tbody.innerHTML = filtered.map(route => `
+                <tr class="hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 transition-all">
+                    <td class="px-6 py-4"><span class="font-bold text-indigo-900">${route.name}</span></td>
+                    <td class="px-6 py-4 text-slate-700 font-medium">${route.origin}</td>
+                    <td class="px-6 py-4 text-slate-700 font-medium">${route.destination}</td>
+                    <td class="px-6 py-4 text-slate-700 font-medium">${route.distance}</td>
+                    <td class="px-6 py-4">
+                        <span class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-xl text-sm font-bold shadow-md">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="18" height="12" rx="2"/></svg>
+                            ${route.vehicles}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4">
+                        <span class="inline-flex px-4 py-2 rounded-xl text-sm font-bold shadow-md ${route.status === 'active' ? 'bg-gradient-to-r from-emerald-500 to-green-500 text-white' : 'bg-gradient-to-r from-slate-400 to-slate-500 text-white'}">
+                            ${route.status}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4">
+                        <div class="flex items-center gap-2">
+                            <button class="p-2 hover:bg-blue-100 text-blue-600 rounded-lg transition-all shadow-sm hover:shadow-md">
+                                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                            </button>
+                            <button onclick="deleteRoute(${route.id})" class="p-2 hover:bg-red-100 text-red-600 rounded-lg transition-all shadow-sm hover:shadow-md">
+                                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function renderSchedules(filterText = '') {
+            const tbody = document.getElementById('schedulesTableBody');
+            const filtered = schedules.filter(s =>
+                s.route.toLowerCase().includes(filterText.toLowerCase()) ||
+                s.vehicleId.toLowerCase().includes(filterText.toLowerCase()) ||
+                s.driver.toLowerCase().includes(filterText.toLowerCase())
+            );
+            
+            tbody.innerHTML = filtered.map(schedule => `
+                <tr class="hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 transition-all">
+                    <td class="px-6 py-4"><span class="font-bold text-indigo-900">${schedule.route}</span></td>
+                    <td class="px-6 py-4">
+                        <span class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl text-sm font-bold shadow-md">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="18" height="12" rx="2"/></svg>
+                            ${schedule.vehicleId}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4">
+                        <span class="flex items-center gap-2 text-slate-700 font-semibold">
+                            <svg width="18" height="18" class="text-indigo-500" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            ${schedule.departure}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4">
+                        <span class="flex items-center gap-2 text-slate-700 font-semibold">
+                            <svg width="18" height="18" class="text-purple-500" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            ${schedule.arrival}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4">
+                        <span class="inline-flex px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-xl text-sm font-bold shadow-md">
+                            ${schedule.days}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 text-slate-700 font-medium">${schedule.driver}</td>
+                    <td class="px-6 py-4">
+                        <div class="flex items-center gap-2">
+                            <button class="p-2 hover:bg-blue-100 text-blue-600 rounded-lg transition-all shadow-sm hover:shadow-md">
+                                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                            </button>
+                            <button onclick="deleteSchedule(${schedule.id})" class="p-2 hover:bg-red-100 text-red-600 rounded-lg transition-all shadow-sm hover:shadow-md">
+                                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function renderData() {
+            const searchTerm = document.getElementById('searchInput').value;
+            if (activeTab === 'routes') {
+                renderRoutes(searchTerm);
+            } else {
+                renderSchedules(searchTerm);
+            }
+            updateStats();
+        }
+
+        function updateStats() {
+            document.getElementById('totalRoutes').textContent = routes.length;
+            document.getElementById('totalSchedules').textContent = schedules.length;
+            document.getElementById('totalVehicles').textContent = routes.reduce((sum, r) => sum + r.vehicles, 0);
+        }
+
+        function handleSearch() {
+            renderData();
+        }
+
+        function deleteRoute(id) {
+            routes = routes.filter(r => r.id !== id);
+            renderData();
+        }
+
+        function deleteSchedule(id) {
+            schedules = schedules.filter(s => s.id !== id);
+            renderData();
+        }
+
+        function openModal() {
+            const modal = document.getElementById('modal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalForm = document.getElementById('modalForm');
+            
+            if (activeTab === 'routes') {
+                modalTitle.textContent = '➕ Add New Route';
+                modalForm.innerHTML = `
+                    <input type="text" id="routeName" placeholder="Route Name" class="w-full px-4 py-3 border-2 border-indigo-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-indigo-200 focus:border-indigo-500 font-medium"/>
+                    <input type="text" id="origin" placeholder="Origin" class="w-full px-4 py-3 border-2 border-purple-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-purple-200 focus:border-purple-500 font-medium"/>
+                    <input type="text" id="destination" placeholder="Destination" class="w-full px-4 py-3 border-2 border-pink-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-pink-200 focus:border-pink-500 font-medium"/>
+                    <input type="text" id="distance" placeholder="Distance (km)" class="w-full px-4 py-3 border-2 border-cyan-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-cyan-200 focus:border-cyan-500 font-medium"/>
+                `;
+            } else {
+                modalTitle.textContent = '➕ Add New Schedule';
+                modalForm.innerHTML = `
+                    <select id="route" class="w-full px-4 py-3 border-2 border-indigo-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-indigo-200 focus:border-indigo-500 font-medium">
+                        <option value="">Select Route</option>
+                        ${routes.map(r => <option value="${r.name}">${r.name}</option>).join('')}
+                    </select>
+                    <input type="text" id="vehicleId" placeholder="Vehicle ID" class="w-full px-4 py-3 border-2 border-purple-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-purple-200 focus:border-purple-500 font-medium"/>
+                    <input type="time" id="departure" placeholder="Departure Time" class="w-full px-4 py-3 border-2 border-pink-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-pink-200 focus:border-pink-500 font-medium"/>
+                    <input type="time" id="arrival" placeholder="Arrival Time" class="w-full px-4 py-3 border-2 border-cyan-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-cyan-200 focus:border-cyan-500 font-medium"/>
+                    <input type="text" id="days" placeholder="Days (e.g., Mon-Fri, Daily)" class="w-full px-4 py-3 border-2 border-teal-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-teal-200 focus:border-teal-500 font-medium"/>
+                    <input type="text" id="driver" placeholder="Driver Name" class="w-full px-4 py-3 border-2 border-orange-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-orange-200 focus:border-orange-500 font-medium"/>
+                `;
+            }
+            
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.add('hidden');
+        }
+
+        function handleSave() {
+            if (activeTab === 'routes') {
+                const routeName = document.getElementById('routeName').value;
+                const origin = document.getElementById('origin').value;
+                const destination = document.getElementById('destination').value;
+                const distance = document.getElementById('distance').value;
+                
+                if (routeName && origin && destination && distance) {
+                    const newRoute = {
+                        id: routes.length + 1,
+                        name: routeName,
+                        origin: origin,
+                        destination: destination,
+                        distance: distance,
+                        status: 'active',
+                        vehicles: 0
+                    };
+                    routes.push(newRoute);
+                    renderData();
+                    closeModal();
+                }
+            } else {
+                const route = document.getElementById('route').value;
+                const vehicleId = document.getElementById('vehicleId').value;
+                const departure = document.getElementById('departure').value;
+                const arrival = document.getElementById('arrival').value;
+                const days = document.getElementById('days').value;
+                const driver = document.getElementById('driver').value;
+                
+                if (route && vehicleId && departure && arrival && days && driver) {
+                    const newSchedule = {
+                        id: schedules.length + 1,
+                        route: route,
+                        vehicleId: vehicleId,
+                        departure: departure,
+                        arrival: arrival,
+                        days: days,
+                        driver: driver
+                    };
+                    schedules.push(newSchedule);
+                    renderData();
+                    closeModal();
+                }
+            }
+        }
+
+        // Initialize
+        renderData();
+    </script>
+</body>
+</html>
